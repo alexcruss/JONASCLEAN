@@ -54,7 +54,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0 6%}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg-grad{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 80% 50%,rgba(201,169,110,.05) 0%,transparent 65%),radial-gradient(ellipse 40% 60% at 10% 80%,rgba(201,169,110,.03) 0%,transparent 60%)}
+.hero-bg-photo{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1000&q=55&auto=format&fit=crop') center/cover no-repeat;opacity:.18;filter:grayscale(30%)}
+.hero-bg-grad{position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 0% 50%,rgba(12,12,14,.98) 0%,rgba(12,12,14,.75) 50%,transparent 100%),linear-gradient(to bottom,rgba(12,12,14,.6) 0%,rgba(12,12,14,.3) 50%,rgba(12,12,14,.8) 100%)}
 .hero-line-v{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,169,110,.15),transparent)}
 .hero-line-v:nth-child(1){left:25%} .hero-line-v:nth-child(2){left:50%} .hero-line-v:nth-child(3){left:75%}
 .hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
@@ -113,6 +114,16 @@ h2 em{font-style:italic;color:var(--gold)}
 .service-desc{font-size:.85rem;color:var(--muted);line-height:1.8;font-weight:300}
 .service-arrow{position:absolute;bottom:1.75rem;right:1.75rem;color:var(--gold);font-size:1.1rem;opacity:0;transform:translateX(-8px);transition:all .3s}
 .service-card:hover .service-arrow{opacity:1;transform:translateX(0)}
+.service-img{width:100%;height:160px;object-fit:cover;border-radius:4px;margin-bottom:1.25rem;opacity:.75;transition:opacity .3s;filter:grayscale(20%)}
+.service-card:hover .service-img{opacity:.95;filter:grayscale(0%)}
+
+/* GALLERY STRIP */
+#gallery{padding:0;overflow:hidden;display:grid;grid-template-columns:repeat(5,1fr);height:280px}
+.gallery-item{overflow:hidden;position:relative;cursor:none}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s;filter:grayscale(30%) brightness(.8)}
+.gallery-item:hover img{transform:scale(1.08);filter:grayscale(0%) brightness(1)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,14,.4),transparent)}
+@media(max-width:900px){#gallery{grid-template-columns:repeat(3,1fr);height:200px}}
 
 /* WHY US */
 #why{position:relative;overflow:hidden}
@@ -237,6 +248,7 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg">
+    <div class="hero-bg-photo"></div>
     <div class="hero-bg-grad"></div>
     <div class="hero-line-v"></div><div class="hero-line-v"></div><div class="hero-line-v"></div>
     <div class="hero-orb hero-orb1"></div><div class="hero-orb hero-orb2"></div>
@@ -275,6 +287,7 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
   </div>
   <div class="services-grid reveal">
     <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=380&q=60&auto=format&fit=crop" alt="Ménage résidentiel" loading="lazy"/>
       <div class="service-num">01</div>
       <span class="service-icon">🏠</span>
       <div class="service-title" data-i18n="s1.title">Ménage Résidentiel</div>
@@ -282,6 +295,7 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=380&q=60&auto=format&fit=crop" alt="Bureaux et entreprises" loading="lazy"/>
       <div class="service-num">02</div>
       <span class="service-icon">🏢</span>
       <div class="service-title" data-i18n="s2.title">Bureaux & Entreprises</div>
@@ -289,6 +303,7 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=380&q=60&auto=format&fit=crop" alt="Nettoyage approfondi" loading="lazy"/>
       <div class="service-num">03</div>
       <span class="service-icon">✨</span>
       <div class="service-title" data-i18n="s3.title">Nettoyage Approfondi</div>
@@ -296,6 +311,7 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=380&q=60&auto=format&fit=crop" alt="Hôtellerie Airbnb" loading="lazy"/>
       <div class="service-num">04</div>
       <span class="service-icon">🏨</span>
       <div class="service-title" data-i18n="s4.title">Hôtellerie & Airbnb</div>
@@ -303,6 +319,7 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=380&q=60&auto=format&fit=crop" alt="Vitres et surfaces" loading="lazy"/>
       <div class="service-num">05</div>
       <span class="service-icon">🪟</span>
       <div class="service-title" data-i18n="s5.title">Vitres & Surfaces</div>
@@ -310,6 +327,7 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=380&q=60&auto=format&fit=crop" alt="Produits éco-responsables" loading="lazy"/>
       <div class="service-num">06</div>
       <span class="service-icon">🌿</span>
       <div class="service-title" data-i18n="s6.title">Produits Éco-Responsables</div>
@@ -318,6 +336,15 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
     </div>
   </div>
 </section>
+
+<!-- GALLERY STRIP -->
+<div id="gallery">
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=380&q=60&auto=format&fit=crop" alt="Salle de bain immaculée" loading="lazy"/></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=380&q=60&auto=format&fit=crop" alt="Salon épuré" loading="lazy"/></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=380&q=60&auto=format&fit=crop" alt="Cuisine propre" loading="lazy"/></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=380&q=60&auto=format&fit=crop" alt="Chambre hôtel" loading="lazy"/></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=380&q=60&auto=format&fit=crop" alt="Bureau moderne" loading="lazy"/></div>
+</div>
 
 <!-- WHY US -->
 <section id="why">
@@ -358,11 +385,14 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
         </div>
       </div>
     </div>
-    <div class="why-visual reveal">
-      <div class="why-stat"><div class="why-stat-num">98%</div><div class="why-stat-label" data-i18n="ws1">Clients satisfaits</div></div>
-      <div class="why-stat"><div class="why-stat-num">500+</div><div class="why-stat-label" data-i18n="ws2">Clients actifs</div></div>
-      <div class="why-stat"><div class="why-stat-num">10k+</div><div class="why-stat-label" data-i18n="ws3">Interventions réalisées</div></div>
-      <div class="why-stat"><div class="why-stat-num">7/7</div><div class="why-stat-label" data-i18n="ws4">Disponibilité</div></div>
+    <div class="why-visual reveal" style="position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=60&auto=format&fit=crop" alt="Espace propre et lumineux" style="width:100%;height:100%;min-height:420px;object-fit:cover;filter:brightness(.5) grayscale(15%);display:block"/>
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-content:end;padding:1.5rem;gap:1rem;background:linear-gradient(to top,rgba(12,12,14,.85) 0%,transparent 60%)">
+        <div class="why-stat" style="background:rgba(12,12,14,.7);backdrop-filter:blur(10px);border-radius:6px;padding:1.25rem 1rem;text-align:center;border:1px solid var(--border)"><div class="why-stat-num">98%</div><div class="why-stat-label" data-i18n="ws1">Clients satisfaits</div></div>
+        <div class="why-stat" style="background:rgba(12,12,14,.7);backdrop-filter:blur(10px);border-radius:6px;padding:1.25rem 1rem;text-align:center;border:1px solid var(--border)"><div class="why-stat-num">500+</div><div class="why-stat-label" data-i18n="ws2">Clients actifs</div></div>
+        <div class="why-stat" style="background:rgba(12,12,14,.7);backdrop-filter:blur(10px);border-radius:6px;padding:1.25rem 1rem;text-align:center;border:1px solid var(--border)"><div class="why-stat-num">10k+</div><div class="why-stat-label" data-i18n="ws3">Interventions réalisées</div></div>
+        <div class="why-stat" style="background:rgba(12,12,14,.7);backdrop-filter:blur(10px);border-radius:6px;padding:1.25rem 1rem;text-align:center;border:1px solid var(--border)"><div class="why-stat-num">7/7</div><div class="why-stat-label" data-i18n="ws4">Disponibilité</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -478,7 +508,7 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">✉️</div>
-          <div class="contact-detail-text"><span class="label">Email</span><span class="val">contact@jonasclean.com</span></div>
+          <div class="contact-detail-text"><span class="label">Email</span><span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4e2d21203a2f2d3a0e2421202f3d2d222b2f20602d2123">[email&#160;protected]</a></span></div>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">📍</div>
@@ -493,26 +523,52 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
     <div class="contact-form-wrap reveal">
       <div class="form-title" data-i18n="ct.formtitle">Demande de devis</div>
       <div class="form-sub" data-i18n="ct.formsub">Réponse garantie sous 24h</div>
-      <div class="form-row">
-        <div class="form-group"><label data-i18n="ct.name">Nom</label><input type="text" id="f-name"/></div>
-        <div class="form-group"><label data-i18n="ct.email">Email</label><input type="email" placeholder="vous@email.com"/></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label data-i18n="ct.phone2">Téléphone</label><input type="tel" placeholder="+33 6 ..."/></div>
-        <div class="form-group">
-          <label data-i18n="ct.service">Service souhaité</label>
-          <select>
-            <option value="" data-i18n="ct.sel">Choisir un service</option>
-            <option data-i18n="s1.title">Ménage Résidentiel</option>
-            <option data-i18n="s2.title">Bureaux & Entreprises</option>
-            <option data-i18n="s3.title">Nettoyage Approfondi</option>
-            <option data-i18n="s4.title">Hôtellerie & Airbnb</option>
-            <option data-i18n="s5.title">Vitres & Surfaces</option>
-          </select>
+      <form action="https://formsubmit.co/jonasclean@gmail.com" method="POST" id="contactForm">
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" value="Nouvelle demande de devis — JonasClean"/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="hidden" name="_next" value="javascript:void(0)"/>
+        <input type="text" name="_honey" style="display:none"/>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="ct.name">Nom</label>
+            <input type="text" name="nom" id="f-name" required/>
+          </div>
+          <div class="form-group">
+            <label data-i18n="ct.email">Email</label>
+            <input type="email" name="email" placeholder="vous@email.com" required/>
+          </div>
         </div>
-      </div>
-      <div class="form-group"><label data-i18n="ct.message">Message</label><textarea id="f-msg"></textarea></div>
-      <div class="form-submit"><button class="btn btn-gold" style="width:100%;justify-content:center" data-i18n="ct.send">Envoyer ma demande ✦</button></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="ct.phone2">Téléphone</label>
+            <input type="tel" name="telephone" placeholder="+228 ..."/>
+          </div>
+          <div class="form-group">
+            <label data-i18n="ct.service">Service souhaité</label>
+            <select name="service">
+              <option value="" data-i18n="ct.sel">Choisir un service</option>
+              <option data-i18n="s1.title">Ménage Résidentiel</option>
+              <option data-i18n="s2.title">Bureaux & Entreprises</option>
+              <option data-i18n="s3.title">Nettoyage Approfondi</option>
+              <option data-i18n="s4.title">Hôtellerie & Airbnb</option>
+              <option data-i18n="s5.title">Vitres & Surfaces</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-i18n="ct.message">Message</label>
+          <textarea name="message" id="f-msg" required></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-gold" id="submitBtn" style="width:100%;justify-content:center" data-i18n="ct.send">Envoyer ma demande ✦</button>
+        </div>
+        <!-- Feedback messages -->
+        <div id="form-success" style="display:none;margin-top:1rem;padding:1rem;background:rgba(0,200,80,.08);border:1px solid rgba(0,200,80,.25);border-radius:6px;color:#4cbb6e;font-size:.85rem;text-align:center" data-i18n="ct.success">✓ Message envoyé ! Nous vous répondons sous 24h.</div>
+        <div id="form-error" style="display:none;margin-top:1rem;padding:1rem;background:rgba(220,50,50,.08);border:1px solid rgba(220,50,50,.2);border-radius:6px;color:#e07070;font-size:.85rem;text-align:center" data-i18n="ct.error">✕ Une erreur est survenue. Veuillez réessayer ou nous écrire directement.</div>
+      </form>
     </div>
   </div>
 </section>
@@ -527,7 +583,7 @@ footer p{font-size:.75rem;color:var(--muted);font-weight:300}
   <p>© 2025 <span class="footer-gold">JonasClean</span> — <span data-i18n="ft.rights">Tous droits réservés</span></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── I18N ── */
 const T = {
   fr:{
@@ -560,6 +616,8 @@ const T = {
     "ct.label":"Contact","ct.title":"Obtenez votre<br><em>devis gratuit</em>","ct.desc":"Décrivez votre besoin, nous vous revenons sous 24h avec une offre personnalisée et sans engagement.",
     "ct.phone":"Téléphone","ct.address":"Zone d'intervention","ct.zone":"Paris & Île-de-France","ct.hours":"Disponibilité","ct.hoursval":"Lun – Dim, 7h – 21h",
     "ct.formtitle":"Demande de devis","ct.formsub":"Réponse garantie sous 24h","ct.name":"Nom","ct.email":"Email","ct.phone2":"Téléphone","ct.service":"Service souhaité","ct.sel":"Choisir un service","ct.message":"Message","ct.send":"Envoyer ma demande ✦",
+    "ct.success":"✓ Message envoyé ! Nous vous répondons sous 24h.",
+    "ct.error":"✕ Une erreur est survenue. Veuillez réessayer ou nous écrire directement.",
     "ft.rights":"Tous droits réservés"
   },
   en:{
@@ -592,6 +650,8 @@ const T = {
     "ct.label":"Contact","ct.title":"Get your<br><em>free quote</em>","ct.desc":"Tell us about your needs and we'll get back to you within 24 hours with a personalised, no-commitment offer.",
     "ct.phone":"Phone","ct.address":"Service area","ct.zone":"Paris & Île-de-France","ct.hours":"Availability","ct.hoursval":"Mon – Sun, 7am – 9pm",
     "ct.formtitle":"Quote request","ct.formsub":"Response guaranteed within 24h","ct.name":"Name","ct.email":"Email","ct.phone2":"Phone","ct.service":"Desired service","ct.sel":"Choose a service","ct.message":"Message","ct.send":"Send my request ✦",
+    "ct.success":"✓ Message sent! We'll get back to you within 24h.",
+    "ct.error":"✕ An error occurred. Please try again or write to us directly.",
     "ft.rights":"All rights reserved"
   }
 };
@@ -614,14 +674,44 @@ let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
 (function tickRing(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tickRing);})();
 
-/* ── SCROLL REVEAL ── */
+/* ── FORM SUBMIT ── */
+const form = document.getElementById('contactForm');
+if(form){
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const success = document.getElementById('form-success');
+    const error = document.getElementById('form-error');
+    success.style.display = 'none';
+    error.style.display = 'none';
+    btn.disabled = true;
+    btn.style.opacity = '.6';
+    btn.innerHTML = '⏳ Envoi en cours...';
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok){
+        success.style.display = 'block';
+        form.reset();
+        btn.innerHTML = '✓ Message envoyé !';
+        btn.style.background = '#2a7a4a';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch(err){
+      error.style.display = 'block';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.innerHTML = lang === 'fr' ? 'Envoyer ma demande ✦' : 'Send my request ✦';
+      btn.style.background = '';
+    }
+  });
+}
+
+
 const obs=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*100);});
-},{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-setLang('fr');
-</script>
-</body>
-</html>
-
+  
