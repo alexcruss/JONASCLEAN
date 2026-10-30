@@ -16,4 +16,4 @@ Site statique en HTML et CSS, responsive, hébergé sur GitHub Pages.
 
 ## Réalisation
 
-[Pierre Kossi DEGBOEVI](https://alexcruss.github.io/portfolio/)
+[Pierre Kossi DEGBOEVI](https://pierredegboevi.com/)
